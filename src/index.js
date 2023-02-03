@@ -4,11 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const data=[
-  {id:"todo-0", name:"Eat", competed: true},
-  {id:"todo-1", name:"Sleep", competed: false},
-  {id:"todo-2", name:"Repeat", competed: false}
-];
+const data=[];
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

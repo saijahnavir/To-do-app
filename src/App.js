@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Todo from './components/Todo';
 import Form from './components/Form';
 import { nanoid } from "nanoid";
-import { createContext } from 'react';
 import './App.css';
 
 //callback prop : a function to accept input from child component and then pass this data to App()
@@ -11,15 +10,10 @@ import './App.css';
 function App(props) {
 
   const[tasks,setTasks]=useState(props.tasks); 
-  const[theme,settheme]=useState("light");
-
-  const toggletheme=()=>{
-    settheme((curr)=>(curr =="light"?"dark":"light"));
-  }
 
   function toggletaskcompleted(id){
     const updatedtasks=tasks.map((task) => {
-    if (id==task.id){
+    if (id===task.id){
       return{...task,completed:!task.completed}
     }
     return task;
@@ -29,7 +23,7 @@ function App(props) {
 
   function edittask(id,newname){
     const editedtlist=tasks.map((task)=>{
-      if(id==task.id){
+      if(id===task.id){
         return{...task,name:newname}
       }
       return task;
@@ -38,7 +32,7 @@ function App(props) {
   }
 
   function deletetask(id){
-    const remainingtasks=tasks.filter((task)=>id!=task.id)
+    const remainingtasks=tasks.filter((task)=>id!==task.id)
     setTasks(remainingtasks)
     console.log(id)
   }
@@ -62,10 +56,7 @@ function App(props) {
   const Taskrem = `${tlist.length} ${taskortasks} remaining!`;
 
   return (
-    <ThemeContext.Provider value={{theme,toggletheme}}>
       <div className="todoapp stack-large">
-      <button type="submit" className="btn btn__dm"> Dark mode </button>
-
       <h1>To do App</h1>
 
       <hr style={{ background: "#4d4d4d",height: "3px",border: "none",}}/>
@@ -82,7 +73,6 @@ function App(props) {
        {tlist}
       </ul>
     </div>
-    </ThemeContext.Provider>
     
   );
 }
