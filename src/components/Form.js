@@ -1,20 +1,18 @@
-import React,{usestate} from 'react';
-
-
+import React,{useState} from 'react';
+import './Form.css';
 
 function Form(props){
 
-    function handlechange(){
-        console.log("Typing . . .")
+  const [name,setName]=useState('');
+
+    function handlechange(e){
+        setName(e.target.value)
     }
 
-    const [name,setName]=useState('');
-
-
-
     function submit(x){
-        x.preventDefault();
-        props.addTask("Task added!");
+      x.preventDefault();
+      props.addTask(name);
+      setName("");
     }
 
     return(
@@ -30,7 +28,6 @@ function Form(props){
       </form>
     
     );
-
 }
 
 export default Form;
