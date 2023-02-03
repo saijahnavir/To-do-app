@@ -1,6 +1,5 @@
 import React,{useState} from "react";
 
-
 function Todo(props){
 
   const [isediting,setediting]=useState(false);
@@ -18,28 +17,29 @@ function Todo(props){
   }
 
   const editingTemplate = (
-    <form className="stack-small" onSubmit={handleSubmit}>
-      <div className="form-group">
+    <form onSubmit={handleSubmit}>
+      <div>
         <label className="todo-label" htmlFor={props.id}>
           New name for {props.name} : 
         </label>
         <input id={props.id} className="todo-text" type="text"  value={newname} onChange={handlechange}/>
       </div>
-      <div className="btn-group">
+      <div>
         <button type="button" className="btn todo-cancel" onClick={()=>setediting(false)}>
           Cancel 
-          <span className="visually-hidden">renaming {props.name}</span>
+          <span>renaming {props.name}</span>
         </button>
         <button type="submit" className="btn btn__primary todo-edit">
           Save 
-          <span className="visually-hidden"> new name for {props.name}</span>
+          <span> new name for {props.name}</span>
         </button>
       </div>
     </form>
   );
+
   const viewTemplate = (
-    <div className="stack-small">
-      <div className="c-cb">
+    <div>
+      <div>
           <input
             id={props.id}
             type="checkbox"
@@ -52,24 +52,20 @@ function Todo(props){
         </div>
         <div className="btn-group">
           <button type="button" className="btn btn__primary" onClick={()=> setediting(true)}>
-            Edit <span className="visually-hidden">{props.name}</span>
+            Edit <span>{props.name}</span>
           </button>
           <button
             type="button"
             className="btn btn__danger"
             onClick={() => props.deletetask(props.id)}
           >
-            Delete <span className="visually-hidden">{props.name}</span>
+            Delete <span>{props.name}</span>
           </button>
         </div>
     </div>
   );
 
-  
-
-  return <li className="todo">{isediting ? editingTemplate : viewTemplate}</li>;
-  
+  return <li className="todo">{isediting ? editingTemplate : viewTemplate}</li>;  
 }
-    
 
 export default Todo;
