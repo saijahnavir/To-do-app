@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
 import './Form.css';
 
-
 function Form(props){
 
   const [name,setName]=useState('');
@@ -9,7 +8,6 @@ function Form(props){
     function handlechange(e){
         setName(e.target.value)
     }
-
 
     function submit(x){
       x.preventDefault();
@@ -30,7 +28,6 @@ function Form(props){
       </form>
     
     );
-
 }
 
 export default Form;
