@@ -1,7 +1,6 @@
 import React,{useState} from "react";
 
 function Todo(props){
-<<<<<<< HEAD
 
   const [isediting,setediting]=useState(false);
   const [newname,setnewname]=useState('');
@@ -68,8 +67,6 @@ function Todo(props){
 
   return <li className="todo">{isediting ? editingTemplate : viewTemplate}</li>;  
 }
-=======
->>>>>>> 9c307041682a3e3fe2ad06636c66608aa2641714
 
   const [isediting,setediting]=useState(false);
   const [newname,setnewname]=useState('');
@@ -135,6 +132,5 @@ function Todo(props){
   );
 
   return <li className="todo">{isediting ? editingTemplate : viewTemplate}</li>;  
-}
 
 export default Todo;
